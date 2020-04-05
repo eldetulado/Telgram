@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
 
   Widget _buildFAB() {
     return FloatingActionButton(
-      child: Icon(Icons.create),
+      child: Icon(Icons.create, color: Colors.white),
       onPressed: (){
         // TODO: Search groups
       },

@@ -1,3 +1,4 @@
+import 'package:clase_regalo/main.dart';
 import 'package:flutter/material.dart';
 
 class ItemList extends StatelessWidget {
@@ -100,7 +101,7 @@ class ItemList extends StatelessWidget {
               ? Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: Colors.green,
+                    color: MyApp.swTheme ? Colors.green : Colors.lightBlue[400],
                   ),
                   padding: EdgeInsets.all(6),
                   child: Text(

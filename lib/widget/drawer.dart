@@ -1,3 +1,4 @@
+import 'package:clase_regalo/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as Math;
 
@@ -6,7 +7,7 @@ class MyDrawer extends StatefulWidget {
   _MyDrawerState createState() => _MyDrawerState();
 }
 
-class _MyDrawerState extends State<MyDrawer>{
+class _MyDrawerState extends State<MyDrawer> {
   bool sw = true;
 
   @override
@@ -24,7 +25,10 @@ class _MyDrawerState extends State<MyDrawer>{
                   child: IconButton(
                     icon: Icon(Icons.brightness_3, color: Colors.white),
                     onPressed: () {
-                      // TODO: change theme and circular reveal animation
+                      // TODO: circular reveal animation
+                      setState(() {
+                        MyApp.switchTheme(!MyApp.swTheme);
+                      });
                     },
                   ),
                 ),
@@ -34,7 +38,6 @@ class _MyDrawerState extends State<MyDrawer>{
             accountName: Text('Oso'),
             accountEmail: Text('+591 (6)990-0000'),
             onDetailsPressed: () {
-              print('hola mundo');
               setState(() {
                 sw = !sw;
               });
@@ -42,7 +45,7 @@ class _MyDrawerState extends State<MyDrawer>{
           ),
           AnimatedContainer(
             duration: Duration(milliseconds: 500),
-            height: sw ? 100 : 0,
+            height: !sw ? 100 : 0,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
