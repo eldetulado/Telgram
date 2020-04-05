@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ItemList extends StatelessWidget {
-
   ItemList({
     this.pathImage,
     this.title,
@@ -15,7 +14,7 @@ class ItemList extends StatelessWidget {
   final String subTitle;
   final String hour;
   final int nroMessages;
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,7 +25,7 @@ class ItemList extends StatelessWidget {
           child: Row(
             children: [
               _avatar(),
-              _titleDetailGroup(),
+              _titleDetailGroup(context),
             ],
           ),
         ),
@@ -35,13 +34,13 @@ class ItemList extends StatelessWidget {
     );
   }
 
-  Widget _titleDetailGroup() {
+  Widget _titleDetailGroup(BuildContext context) {
     return Expanded(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Flexible(flex: 3, child: _titleSubtitle()),
-          Flexible(child: _dateNroMessages()),
+          Flexible(child: _dateNroMessages(context)),
         ],
       ),
     );
@@ -81,7 +80,7 @@ class ItemList extends StatelessWidget {
     );
   }
 
-  Widget _dateNroMessages() {
+  Widget _dateNroMessages(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(right: 8),
       child: Column(
@@ -97,20 +96,22 @@ class ItemList extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              color: Colors.blue,
-            ),
-            padding: EdgeInsets.all(6),
-            child: Text(
-              nroMessages.toString(),
-              maxLines: 1,
-              softWrap: true,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(color: Colors.white, fontSize: 14),
-            ),
-          ),
+          nroMessages > 0
+              ? Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Colors.green,
+                  ),
+                  padding: EdgeInsets.all(6),
+                  child: Text(
+                    nroMessages.toString(),
+                    maxLines: 1,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
+                )
+              : SizedBox(height: 10),
         ],
       ),
     );

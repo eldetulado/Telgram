@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'hola mundo',
       debugShowCheckedModeBanner: false,
+      // theme: ThemeData(primaryColor: Color.fromRGBO(86, 130, 163, 1)),
+      // theme: ThemeData.dark(),
       initialRoute: HomePage.name,
       routes: {
         HomePage.name: (_) => HomePage(),

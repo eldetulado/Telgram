@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
       appBar: _buildAppBar(),
       drawer: MyDrawer(),
       body: _buildList(),
+      floatingActionButton: _buildFAB(),
     );
   }
 
@@ -37,6 +38,15 @@ class HomePage extends StatelessWidget {
         hour: _listGroup[i].hour,
         nroMessages: _listGroup[i].nroMessages,
       ),
+    );
+  }
+
+  Widget _buildFAB() {
+    return FloatingActionButton(
+      child: Icon(Icons.create),
+      onPressed: (){
+        // TODO: Search groups
+      },
     );
   }
 
