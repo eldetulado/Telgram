@@ -1,7 +1,9 @@
 import 'package:clase_regalo/pages/home_page.dart';
+import 'package:clase_regalo/pages/request_page.dart';
 import 'package:flutter/material.dart';
 
-import 'package:device_preview/device_preview.dart';
+import 'package:flutter/services.dart';
+// import 'package:device_preview/device_preview.dart';
 
 // void main() => runApp(
 //       DevicePreview(
@@ -10,7 +12,6 @@ import 'package:device_preview/device_preview.dart';
 //         },
 //       ),
 //     );
-import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -50,9 +51,10 @@ class _MyAppState extends State<MyApp> {
               brightness: Brightness.dark,
               accentColor: Colors.blue,
             ),
-      initialRoute: HomePage.name,
+      initialRoute: RequestPage.NAME,
       routes: {
         HomePage.name: (_) => HomePage(),
+        RequestPage.NAME: (_) => RequestPage(),
       },
     );
   }
